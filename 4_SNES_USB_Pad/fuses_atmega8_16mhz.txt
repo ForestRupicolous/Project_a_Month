@@ -1,0 +1,5 @@
+avrdude fuses
+atmega8 16MHz external crystal
+
+avrdude -c buspirate -P com11 -p m8 -U lfuse:w:0xff:m -U hfuse:w:0xc9:m 
+
