@@ -15,6 +15,16 @@ Steps:
 # Read in garage remote
 ## different results for each receiver
 
+# Testing 2nd remote
+## Installing Oszi :]
+## Opening Remote
+### Lm7805
+### B9048 - MM5741ON ? [no information found] as main IC 
+### Button enables voltage on regulator
+### Velleman P6704 kit , [no information found]
+### 4 IR Leds in Series
+## Measurment on LED:
+### Freq: 2.273 kHz
 # Arduino setup to replay code
 # Test with self read-in
 # Test with garage
