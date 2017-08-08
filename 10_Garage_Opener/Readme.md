@@ -25,6 +25,18 @@ Steps:
 ### 4 IR Leds in Series
 ## Measurment on LED:
 ### Freq: 2.273 kHz
+### Analisis in Excel
+### Resolution of 4 uS
+### Deriving switching code from it
 # Arduino setup to replay code
+## Delay with delayMicroseconds()
+### Accurancy of 3 uS !
+### Measure real time with Oszi
+### Manual delaying? -> Not portable!
+### Measure time of direct toggeling
+### Disable Interupts
+
+
+
 # Test with self read-in
 # Test with garage
