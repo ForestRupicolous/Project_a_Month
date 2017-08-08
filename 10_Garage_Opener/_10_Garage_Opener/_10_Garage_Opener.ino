@@ -1,33 +1,49 @@
 
-#define IR_LED LED_BUILTIN
+#define IR_LED 4
 #define NUM_BITS 21
 #define NUM_REPETITIONS 5
+
+#define DEBUG 0
+#if DEBUG
+  #define delayMicroseconds(x) delay(x)
+#endif
+
+#define LOW_TIME 80
+#define FULL_HIGH_TIME 320
+#define HALF_HIGH_TIME FULL_HIGH_TIME/2
+
 void sendCode();
 void sendBit(boolean IRbit);
 
-boolean bit_array[NUM_BITS] = {101101111011101001011};
+boolean bit_array[NUM_BITS] = {1,0,1,1,0,1,1,1,1,0,1,1,1,0,1,0,0,1,0,1,1};
 
 void setup() {
   // put your setup code here, to run once:
-  noInterrupts();
-  pinMode(LED_BUILTIN, OUTPUT);
-  digitalWrite(LED_BUILTIN, HIGH);
+  //noInterrupts();
+  pinMode(IR_LED, OUTPUT);
+  digitalWrite(IR_LED, HIGH);
 }
 
 void loop() {
   // put your main code here, to run repeatedly:
+#if DEBUG
+  delay(1000);
+  sendBit(true);
+  sendBit(true);
+  delay(1000);
+  sendBit(false);
+  sendBit(false);
+#endif 
   for(int l=0; l<NUM_REPETITIONS; l++)
   {
     sendCode();
   }
-  digitalWrite(LED_BUILTIN, LOW);
-  delay(1000); //after 5 repetitions wait 1s
-  digitalWrite(LED_BUILTIN, HIGH);
+  digitalWrite(IR_LED, HIGH);
 }
 
 void sendCode()
 {
-  for(int i=0; i>NUM_BITS; i++)
+  for(int i=0; i<NUM_BITS; i++)
   {
     sendBit(bit_array[i]);
   }
@@ -38,19 +54,19 @@ void sendBit(boolean IRbit)
 {
   if(IRbit)
   {
-    digitalWrite(LED_BUILTIN, LOW);
-    delayMicroseconds(80);
-    digitalWrite(LED_BUILTIN, HIGH);
-    delayMicroseconds(320);
+    digitalWrite(IR_LED, LOW);
+    delayMicroseconds(LOW_TIME);
+    digitalWrite(IR_LED, HIGH);
+    delayMicroseconds(FULL_HIGH_TIME);
   }
   else
   {
-    digitalWrite(LED_BUILTIN, LOW);
-    delayMicroseconds(80);
-    digitalWrite(LED_BUILTIN, HIGH);
-    delayMicroseconds(160);
-    digitalWrite(LED_BUILTIN, LOW);
-    delayMicroseconds(160);
+    digitalWrite(IR_LED, LOW);
+    delayMicroseconds(LOW_TIME);
+    digitalWrite(IR_LED, HIGH);
+    delayMicroseconds(HALF_HIGH_TIME);
+    digitalWrite(IR_LED, LOW);
+    delayMicroseconds(HALF_HIGH_TIME);
   }
 }
 
