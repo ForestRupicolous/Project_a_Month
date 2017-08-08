@@ -23,14 +23,18 @@ Steps:
 ### Button enables voltage on regulator
 ### Velleman P6704 kit , [no information found]
 ### 4 IR Leds in Series
-## Measurment on LED:
-### Freq: 2.273 kHz
+## Measurement on LED:
+### Freq: 2.273 kHz -> 440 uS Period
 ### Analisis in Excel
-### Resolution of 4 uS
+### Resolution of 40 uS -> Measure with higher resolution
 ### Deriving switching code from it
+### Codeing: Low (80 us) High (320 us) ->1 / Low (80 uS) High (160 uS) Low 160 (uS)  -> 0  
+### (high start) 1011 0111 1011 1010 0101 1(high end)
+### High/Low visible in High Part of Phase (Full/Half)
+### Watch out as Low Part of High and next Low are connected
 # Arduino setup to replay code
 ## Delay with delayMicroseconds()
-### Accurancy of 3 uS !
+### Accurancy of 3 uS, should be enought
 ### Measure real time with Oszi
 ### Manual delaying? -> Not portable!
 ### Measure time of direct toggeling
