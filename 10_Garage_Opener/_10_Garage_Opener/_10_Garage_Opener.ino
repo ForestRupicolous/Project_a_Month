@@ -22,6 +22,8 @@ void setup() {
   //noInterrupts();
   pinMode(IR_LED, OUTPUT);
   digitalWrite(IR_LED, HIGH);
+  delayMicroseconds(10720);
+  
 }
 
 void loop() {
@@ -39,6 +41,7 @@ void loop() {
     sendCode();
   }
   digitalWrite(IR_LED, HIGH);
+
 }
 
 void sendCode()
