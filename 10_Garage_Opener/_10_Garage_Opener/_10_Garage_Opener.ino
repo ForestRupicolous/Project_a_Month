@@ -8,8 +8,8 @@
   #define delayMicroseconds(x) delay(x)
 #endif
 
-#define LOW_TIME 80
-#define FULL_HIGH_TIME 320
+#define LOW_TIME 92
+#define FULL_HIGH_TIME 352
 #define HALF_HIGH_TIME FULL_HIGH_TIME/2
 
 void sendCode();
@@ -41,7 +41,7 @@ void loop() {
     sendCode();
   }
   digitalWrite(IR_LED, HIGH);
-
+  delayMicroseconds(10720);
 }
 
 void sendCode()

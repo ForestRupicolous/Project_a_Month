@@ -44,3 +44,7 @@ Steps:
 
 # Test with self read-in
 # Test with garage
+# Test with garage failed
+# Reread data from remote and analyse with sigrok
+## low: 100, hihg 360, low 80, 180, 260, 360, 80, 360 , 100, 160, 280, 340 ....
+## mearuement oszi: low 92, high 352, ,low 268/270, hihg half 174/176 -> use this values!!!
