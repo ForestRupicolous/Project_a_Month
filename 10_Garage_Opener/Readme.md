@@ -48,3 +48,11 @@ Steps:
 # Reread data from remote and analyse with sigrok
 ## low: 100, hihg 360, low 80, 180, 260, 360, 80, 360 , 100, 160, 280, 340 ....
 ## mearuement oszi: low 92, high 352, ,low 268/270, hihg half 174/176 -> use this values!!!
+#Analyse data with python pandas as excel isn't able to read 1048575 datalines
+## >>import pandas as pd
+## >>df = pd.read_csv('C:/Projekte/1_Project_a_Month/10_Garage_Opener/NewFile2.csv', header=1)
+## >>df
+## >>df['Logic'] = if df['Volt']>5.0
+## >>df
+
+Next steps: import matplotlib.pyplot as plt
