@@ -11,8 +11,8 @@ Work-breakdown-structure:
 Hardware:
 * USB connected board
 ** Digispark: http://digistump.com/products/1
-** ATTiny85 - 5V - Direct USB connector
-** Cheap chinese knock-off: https://www.amazon.de/AZDelivery-Kickstarter-kompatibles-Entwiklung-Development/dp/B01N7SGC1I/ref=sr_1_2?ie=UTF8&qid=1510405170&sr=8-2&keywords=digispark&dpID=51RZMq0lm6L&preST=_SY300_QL70_&dpSrc=srch
+*** ATTiny85 - 5V - Direct USB connector
+*** Cheap chinese knock-off: https://www.amazon.de/AZDelivery-Kickstarter-kompatibles-Entwiklung-Development/dp/B01N7SGC1I/ref=sr_1_2?ie=UTF8&qid=1510405170&sr=8-2&keywords=digispark&dpID=51RZMq0lm6L&preST=_SY300_QL70_&dpSrc=srch
 * RGB LED
 ** WS2812 (or compatible)
 *** Possiblity to increase led numbers later
@@ -35,3 +35,7 @@ Software:
 
 Chasing:
 * 3D printed
+
+Connection:
+5V - GND - 
+Questions: Does the 5V port have the USB power?
