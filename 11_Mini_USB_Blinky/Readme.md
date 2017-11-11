@@ -39,3 +39,17 @@ Chasing:
 Connection:
 5V - GND - 
 Questions: Does the 5V port have the USB power?
+
+Getting started Digispark:
+http://digistump.com/wiki/digispark/tutorials/connecting
+
+First steps:
+Install drivers
+Install board in Arduino IDE
+! Unplug Board !
+Compile/Upload
+Plug-In Board
+
+Basic blinky works :)
+
+
