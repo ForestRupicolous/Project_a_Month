@@ -37,8 +37,8 @@ Chasing:
 * 3D printed
 
 Connection:
-5V - GND - 
-Questions: Does the 5V port have the USB power?
+5V - GND - P0
+Questions: Does the 5V port have the USB power- > YES
 
 Getting started Digispark:
 http://digistump.com/wiki/digispark/tutorials/connecting
@@ -51,5 +51,7 @@ Compile/Upload
 Plug-In Board
 
 Basic blinky works :)
+16 LED Ring works
 
+USB Connection with CDC creates blue screen under win10, without cdc it needs special software to interact :/
 
