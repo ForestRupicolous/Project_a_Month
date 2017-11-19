@@ -6,7 +6,7 @@
 //#include "BLEScan.h"
 
 //The remote device (peripheral) we wish to connect
-#define peripheralAddr "c4:be:84:71:39:84"
+#define peripheralAddr "24:71:89:bf:2a:04"
 // The remote service we wish to connect to.
 //static BLEUUID serviceUUID("91bad492-b950-4226-aa2b-4ede9fa42f59");
 static BLEUUID serviceUUID("f000aa00-0451-4000-b000-000000000000");
@@ -107,7 +107,7 @@ class MyAdvertisedDeviceCallbacks: public BLEAdvertisedDeviceCallbacks {
       Serial.print("]\nTXPower: [");
       Serial.print(advertisedDevice.getTXPower());
       Serial.print("]\nAppearance: [");
-      Serial.print(advertisedDevice.getApperance()); //misspelled ? Appearance
+      Serial.print(advertisedDevice.getAppearance()); //misspelled ? Appearance
       Serial.println("]");
 
       // We have found a device, let us now see if it contains the devieceAddress we are looking for.
