@@ -1,7 +1,9 @@
 // NeoPixel Ring simple sketch (c) 2013 Shae Erisson
 // released under the GPLv3 license to match the rest of the AdaFruit NeoPixel library
 #include <Adafruit_NeoPixel.h>
-
+#define USB_CFG_DEVICE_NAME     'D','i','g','i','B','l','i','n','k'
+#define USB_CFG_DEVICE_NAME_LEN 9
+//#include <DigiUSB.h>
 // Which pin on the Arduino is connected to the NeoPixels?
 #define PIN            0
 
@@ -14,11 +16,12 @@
 Adafruit_NeoPixel strip = Adafruit_NeoPixel(NUMPIXELS, PIN, NEO_GRB + NEO_KHZ800);
 
 int delayval = 500; // delay for half a second
-
-int showType = 0;
+byte in = 0;
+int showType = 1;
 
 
 void setup() {
+  //DigiUSB.begin();
   strip.begin(); // This initializes the NeoPixel library.
   pinMode(1,OUTPUT);
 }
@@ -30,8 +33,19 @@ void loop() {
     delay(10000);
     showType++;
     if (showType > 9)
-        showType=0;
+        showType=7;
     startShow(showType);
+    
+    /*if (DigiUSB.available() > 0) {
+       in = 0;
+       
+       in = DigiUSB.read();
+       if (in < 10){
+           DigiUSB.println("Received");
+           DigiUSB.println(in,DEC);
+           showType = in;
+         }
+    }*/
 }
 
 
