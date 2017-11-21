@@ -6,13 +6,16 @@
 //#include "BLEScan.h"
 
 //The remote device (peripheral) we wish to connect
-#define peripheralAddr "24:71:89:bf:2a:04"
+//#define peripheralAddr "24:71:89:bf:2a:04"
+#define peripheralAddr "f3:da:9d:26:22:c2"
 // The remote service we wish to connect to.
-//static BLEUUID serviceUUID("91bad492-b950-4226-aa2b-4ede9fa42f59");
-static BLEUUID serviceUUID("f000aa00-0451-4000-b000-000000000000");
+static BLEUUID serviceUUID("eb0fd000-2d0a-43cf-9521-747be0681d5a");
+//static BLEUUID serviceUUID("f000aa00-0451-4000-b000-000000000000");
 // The characteristic of the remote service we are interested in.
-static BLEUUID    charconfigUUID("f000aa02-0451-4000-b000-000000000000");
-static BLEUUID    charUUID("f000aa01-0451-4000-b000-000000000000");
+static BLEUUID    charconfigUUID("eb0fd002-2d0a-43cf-9521-747be0681d5a");
+//static BLEUUID    charUUID("f000aa01-0451-4000-b000-000000000000");
+static BLEUUID    charUUID("eb0fd001-2d0a-43cf-9521-747be0681d5a");
+
 
 static BLEAddress *pServerAddress;
 static BLEAddress *pPeripheralAddr;
@@ -75,7 +78,7 @@ void connectToServer(BLEAddress pAddress)
     characteristicFound = true;
     pRemoteCharacteristic->writeValue(1, 1);
   }
-
+    delay(1000); // Delay a second between loops.
   // Obtain a reference to the characteristic in the service of the remote BLE server.
   pRemoteCharacteristic = pRemoteService->getCharacteristic(charUUID);
   if (pRemoteCharacteristic == nullptr) {
@@ -92,8 +95,12 @@ void connectToServer(BLEAddress pAddress)
   std::string value = pRemoteCharacteristic->readValue();
   Serial.print("The characteristic value was: ");
   Serial.println(value.c_str());
+  
+  delay(1000); // Delay a second between loops.
 
   pRemoteCharacteristic->registerForNotify(notifyCallback);
+  Serial.print("Register for notify of: ");
+  Serial.println(charUUID.toString().c_str());
 }
 
 /**
@@ -189,20 +196,22 @@ void loop() {
      // pRemoteCharacteristic->writeValue(newValue.c_str(), newValue.length());
 
         // Read the value of the characteristic.
-      //std::string value = pRemoteCharacteristic->readValue();
+      std::string value = pRemoteCharacteristic->readValue();
       
-      uint32_t data = pRemoteCharacteristic->readUInt32();
+      //uint32_t data = pRemoteCharacteristic->readUInt32();
       Serial.print("The characteristic value was: ");
-      Serial.print(data,HEX);
-      AmbientTemp = data & 0x0000FFFF;
-      Serial.print(" IR:");
-      Serial.print((float) AmbientTemp/100,1);
-      ObjectTemp = (data & 0xFFFF0000)>>16;
-      Serial.print(" Sensor:");
-      Serial.println((float) ObjectTemp/100,1);      
+      Serial.print(*(uint32_t*)value.data(),HEX);
+      Serial.print(" lenght:");
+      Serial.println(value.length());
+//      AmbientTemp = data & 0x0000FFFF;
+//      Serial.print(" IR:");
+//      Serial.print((float) AmbientTemp/100,1);
+//      ObjectTemp = (data & 0xFFFF0000)>>16;
+//      Serial.print(" Sensor:");
+//      Serial.println((float) ObjectTemp/100,1);      
 
     }
   }
 
-  delay(1000); // Delay a second between loops.
+  delay(5000); // Delay a second between loops.
 } // End of loop
