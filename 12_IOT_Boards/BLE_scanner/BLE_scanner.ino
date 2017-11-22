@@ -10,6 +10,7 @@
 #define peripheralAddr "f3:da:9d:26:22:c2"
 // The remote service we wish to connect to.
 static BLEUUID serviceUUID("eb0fd000-2d0a-43cf-9521-747be0681d5a");
+static BLEUUID serviceconifgUUID("eb0fd000-2d0a-43cf-9521-747be0681d5a");
 //static BLEUUID serviceUUID("f000aa00-0451-4000-b000-000000000000");
 // The characteristic of the remote service we are interested in.
 static BLEUUID    charconfigUUID("eb0fd002-2d0a-43cf-9521-747be0681d5a");
@@ -21,8 +22,14 @@ static BLEAddress *pServerAddress;
 static BLEAddress *pPeripheralAddr;
 static boolean doConnect = false;
 static boolean characteristicFound = false;
+static boolean configFound = false;
 static boolean connected = false;
 static BLERemoteCharacteristic* pRemoteCharacteristic;
+static BLERemoteCharacteristic* pRemoteConfig;
+static BLEClient* pClient;
+
+
+
 
 static void notifyCallback(
   BLERemoteCharacteristic* pBLERemoteCharacteristic,
@@ -35,6 +42,43 @@ static void notifyCallback(
   Serial.println(length);
 }
 
+void triggerMeasurement()
+{
+  if(connected)
+    {
+   // Obtain a reference to the service we are after in the remote BLE server.
+    BLERemoteService* pRemoteConfigService = pClient->getService(serviceconifgUUID);
+    if (pRemoteConfigService == nullptr)
+    {
+      Serial.print("Failed to find our service UUID: ");
+      Serial.println(serviceconifgUUID.toString().c_str());
+      return;
+    }
+    else
+    {
+      Serial.println("----------------- Found your service ------------------------");
+    }
+  
+      delay(1000); // Delay a second between loops.
+    // Obtain a reference to the characteristic in the service of the remote BLE server.
+    pRemoteConfig = pRemoteConfigService->getCharacteristic(charconfigUUID);
+    if (pRemoteConfig == nullptr) {
+      Serial.print("Failed to find our characteristic UUID: ");
+      Serial.println(charconfigUUID.toString().c_str());
+      return;
+    }
+    else
+    {
+      Serial.println("----------------- Found config characteristic ------------------------");
+      configFound = true;
+      delay(1000); // Delay a second between loops.
+      pRemoteConfig->writeValue(1, 1);
+    }
+  }
+  
+}
+
+
 void connectToServer(BLEAddress pAddress)
 {
   delay(50); /*--D- -(-6-293--)- -B-LE-U--t-i-l-s : coRennceecivtTeodS ae rvGeAPr  -e-ve--n-t-: --E-S-P-_-GA--P-_-B-LE--_-S-C-A-N-_S--TO--P-_C-O--M-P-L-E-T-E-_E--VT-<\r>-<\n>
@@ -44,7 +88,7 @@ void connectToServer(BLEAddress pAddress)
   Serial.print("Forming a connection to:");
   Serial.println(pAddress.toString().c_str());
 
-  BLEClient*  pClient  = BLEDevice::createClient();
+  pClient  = BLEDevice::createClient();
   Serial.println(" - Created client");
 
   // Connect to the remove BLE Server.
@@ -64,21 +108,7 @@ void connectToServer(BLEAddress pAddress)
     Serial.println("----------------- Found your service ------------------------");
   }
 
-
-  // Obtain a reference to the characteristic in the service of the remote BLE server.
-  pRemoteCharacteristic = pRemoteService->getCharacteristic(charconfigUUID);
-  if (pRemoteCharacteristic == nullptr) {
-    Serial.print("Failed to find our characteristic UUID: ");
-    Serial.println(charconfigUUID.toString().c_str());
-    return;
-  }
-  else
-  {
-    Serial.println("----------------- Found config characteristic ------------------------");
-    characteristicFound = true;
-    pRemoteCharacteristic->writeValue(1, 1);
-  }
-    delay(1000); // Delay a second between loops.
+  
   // Obtain a reference to the characteristic in the service of the remote BLE server.
   pRemoteCharacteristic = pRemoteService->getCharacteristic(charUUID);
   if (pRemoteCharacteristic == nullptr) {
@@ -186,15 +216,17 @@ void loop() {
   if (connected)
   {
     Serial.println("----------------- still connected ------------------------");
-    String newValue = "Time since boot: " + String(millis() / 1000);
+    //String newValue = "1";//"Time since boot: " + String(millis() / 1000);
 
     if (characteristicFound == true)
     {
       
      // Serial.println("Setting new characteristic value to \"" + newValue + "\"");
       // Set the characteristic's value to be the array of bytes that is actually a string.
-     // pRemoteCharacteristic->writeValue(newValue.c_str(), newValue.length());
-
+     //pRemoteConfig->writeValue(newValue.c_str(), newValue.length());
+     triggerMeasurement();
+    // pRemoteConfig->writeValue(1, 1);
+     delay(1000);
         // Read the value of the characteristic.
       std::string value = pRemoteCharacteristic->readValue();
       
