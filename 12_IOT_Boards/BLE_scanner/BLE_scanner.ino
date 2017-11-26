@@ -224,16 +224,20 @@ void loop() {
      // Serial.println("Setting new characteristic value to \"" + newValue + "\"");
       // Set the characteristic's value to be the array of bytes that is actually a string.
      //pRemoteConfig->writeValue(newValue.c_str(), newValue.length());
-     triggerMeasurement();
+     //triggerMeasurement();
     // pRemoteConfig->writeValue(1, 1);
      delay(1000);
         // Read the value of the characteristic.
-      std::string value = pRemoteCharacteristic->readValue();
+      std::string value= pRemoteCharacteristic->readValue();
       
       //uint32_t data = pRemoteCharacteristic->readUInt32();
       Serial.print("The characteristic value was: ");
+      Serial.print(value.c_str());
+      Serial.print(" ");
       Serial.print(*(uint32_t*)value.data(),HEX);
       Serial.print(" lenght:");
+      Serial.print(value.size());
+      Serial.print(" ");
       Serial.println(value.length());
 //      AmbientTemp = data & 0x0000FFFF;
 //      Serial.print(" IR:");
