@@ -4,6 +4,7 @@
 
 #include "BLEDevice.h"
 //#include "BLEScan.h"
+#include "esp_log.h"
 
 //The remote device (peripheral) we wish to connect
 //#define peripheralAddr "24:71:89:bf:2a:04"
@@ -81,9 +82,7 @@ void triggerMeasurement()
 
 void connectToServer(BLEAddress pAddress)
 {
-  delay(50); /*--D- -(-6-293--)- -B-LE-U--t-i-l-s : coRennceecivtTeodS ae rvGeAPr  -e-ve--n-t-: --E-S-P-_-GA--P-_-B-LE--_-S-C-A-N-_S--TO--P-_C-O--M-P-L-E-T-E-_E--VT-<\r>-<\n>
-  -D-- -(6--3-0-7<\r>)<\n>
-*/
+  delay(50); 
   //Serial.println("----------------- connectToServer ------------------------------");
   Serial.print("Forming a connection to:");
   Serial.println(pAddress.toString().c_str());
@@ -177,6 +176,8 @@ class MyAdvertisedDeviceCallbacks: public BLEAdvertisedDeviceCallbacks {
 
 
 void setup() {
+  esp_log_level_set("*", ESP_LOG_DEBUG);  //ESP_LOG_VERBOSE
+  
   Serial.begin(115200);
   Serial.println("Starting Arduino BLE Client application...");
 
