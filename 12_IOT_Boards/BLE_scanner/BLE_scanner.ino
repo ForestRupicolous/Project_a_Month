@@ -5,6 +5,10 @@
 #include "BLEDevice.h"
 //#include "BLEScan.h"
 #include "esp_log.h"
+#include <gatt_api.h> // bluedroid include
+#ifdef ARDUINO_ARCH_ESP32
+#include "esp32-hal-log.h"
+#endif
 
 //The remote device (peripheral) we wish to connect
 //#define peripheralAddr "24:71:89:bf:2a:04"
@@ -41,6 +45,19 @@ static void notifyCallback(
   Serial.print(pBLERemoteCharacteristic->getUUID().toString().c_str());
   Serial.print(" of data length ");
   Serial.println(length);
+  Serial.print("Data: ");
+  Serial.print(pData[0]);
+  Serial.print(pData[1]);
+  Serial.print(pData[2]);
+  Serial.print(pData[3]);
+  Serial.print(pData[4]);
+  Serial.print(pData[5]);
+  Serial.print(pData[6]);
+  Serial.print(pData[7]);
+  Serial.print(pData[8]);
+  Serial.print(pData[9]);
+  Serial.println(pData[10]);
+ // BLEtimeout = 0;
 }
 
 void triggerMeasurement()
@@ -80,7 +97,7 @@ void triggerMeasurement()
 }
 
 
-void connectToServer(BLEAddress pAddress)
+bool connectToServer(BLEAddress pAddress)
 {
   delay(50); 
   //Serial.println("----------------- connectToServer ------------------------------");
@@ -100,7 +117,7 @@ void connectToServer(BLEAddress pAddress)
   {
     Serial.print("Failed to find our service UUID: ");
     Serial.println(serviceUUID.toString().c_str());
-    return;
+    return false;
   }
   else
   {
@@ -113,7 +130,7 @@ void connectToServer(BLEAddress pAddress)
   if (pRemoteCharacteristic == nullptr) {
     Serial.print("Failed to find our characteristic UUID: ");
     Serial.println(charUUID.toString().c_str());
-    return;
+    return false;
   }
   else
   {
@@ -121,15 +138,16 @@ void connectToServer(BLEAddress pAddress)
     characteristicFound = true;
   }
   // Read the value of the characteristic.
-  std::string value = pRemoteCharacteristic->readValue();
-  Serial.print("The characteristic value was: ");
-  Serial.println(value.c_str());
+ // std::string value = pRemoteCharacteristic->readValue();
+ // Serial.print("The characteristic value was: ");
+ // Serial.println(value.c_str());
   
-  delay(1000); // Delay a second between loops.
+ // delay(1000); // Delay a second between loops.
 
   pRemoteCharacteristic->registerForNotify(notifyCallback);
   Serial.print("Register for notify of: ");
   Serial.println(charUUID.toString().c_str());
+  return true;
 }
 
 /**
@@ -151,8 +169,11 @@ class MyAdvertisedDeviceCallbacks: public BLEAdvertisedDeviceCallbacks {
       Serial.print(advertisedDevice.getName().c_str());
       Serial.print("]\nManufacturerData: [");
       Serial.print(advertisedDevice.getManufacturerData().c_str());
-      Serial.print("]\nServiceUUID: [");
-      Serial.print(advertisedDevice.getServiceUUID().toString().c_str());
+      if (advertisedDevice.haveServiceUUID())
+      {
+        Serial.print("]\nServiceUUID: [");
+        Serial.print(advertisedDevice.getServiceUUID().toString().c_str());
+      }
       Serial.print("]\nRSSI: [");
       Serial.print(advertisedDevice.getRSSI());
       Serial.print("]\nTXPower: [");
@@ -166,7 +187,7 @@ class MyAdvertisedDeviceCallbacks: public BLEAdvertisedDeviceCallbacks {
       {
         pServerAddress = new BLEAddress(advertisedDevice.getAddress());
         Serial.println("*******************************************************************");
-        Serial.println("Found matching device!");
+        Serial.print("Found matching device!");
         advertisedDevice.getScan()->stop();
         doConnect = true;
 
@@ -177,6 +198,7 @@ class MyAdvertisedDeviceCallbacks: public BLEAdvertisedDeviceCallbacks {
 
 void setup() {
   esp_log_level_set("*", ESP_LOG_DEBUG);  //ESP_LOG_VERBOSE
+  //GATT_SetTraceLevel(6);
   
   Serial.begin(115200);
   Serial.println("Starting Arduino BLE Client application...");
@@ -207,9 +229,14 @@ void loop() {
   // BLE Server with which we wish to connect.  Now we connect to it.  Once we are
   // connected we set the connected flag to be true.
   if (doConnect == true) {
-    connectToServer(*pServerAddress); //this internal reads the GATT
+    if (connectToServer(*pServerAddress)){ //this internal reads the GATT
+      Serial.println("We are now connected to the BLE Server.");
+      connected = true;
+    } 
+    else {
+      Serial.println("We have failed to connect to the server; there is nothin more we will do.");
+    }
     doConnect = false;
-    connected = true;
   }
 
   // If we are connected to a peer BLE Server, update the characteristic each time we are reached
