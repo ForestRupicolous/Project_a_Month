@@ -14,15 +14,15 @@
 //#define peripheralAddr "24:71:89:bf:2a:04"
 #define peripheralAddr "f3:da:9d:26:22:c2"
 // The remote service we wish to connect to.
-//static BLEUUID serviceUUID("eb0fd000-2d0a-43cf-9521-747be0681d5a");  //muse data service
-static BLEUUID serviceUUID("0000180f-0000-1000-8000-00805f9b34fb");  //battery service
+static BLEUUID serviceUUID("eb0fd000-2d0a-43cf-9521-747be0681d5a");  //muse data service
+//static BLEUUID serviceUUID("0000180f-0000-1000-8000-00805f9b34fb");  //battery service
 static BLEUUID serviceconifgUUID("eb0fd000-2d0a-43cf-9521-747be0681d5a");
 //static BLEUUID serviceUUID("f000aa00-0451-4000-b000-000000000000");
 // The characteristic of the remote service we are interested in.
 static BLEUUID    charconfigUUID("eb0fd002-2d0a-43cf-9521-747be0681d5a");
 //static BLEUUID    charUUID("f000aa01-0451-4000-b000-000000000000");
-static BLEUUID    charUUID("00002a19-0000-1000-8000-00805f9b34fb");  //Battery characteristic
-//static BLEUUID    charUUID("eb0fd001-2d0a-43cf-9521-747be0681d5a"); //Muse data
+//static BLEUUID    charUUID("00002a19-0000-1000-8000-00805f9b34fb");  //Battery characteristic
+static BLEUUID    charUUID("eb0fd001-2d0a-43cf-9521-747be0681d5a"); //Muse data
 
 static BLEAddress *pServerAddress;
 static BLEAddress *pPeripheralAddr;
@@ -33,6 +33,17 @@ static boolean connected = false;
 static BLERemoteCharacteristic* pRemoteCharacteristic;
 static BLERemoteCharacteristic* pRemoteConfig;
 static BLEClient* pClient;
+
+typedef struct {
+    uint16_t    pressure;
+    int16_t     temperature;
+    uint8_t     humidity;
+    uint16_t    gas;
+    uint16_t    brightness;
+    uint8_t     loudness;
+    uint8_t     status[6];
+    uint32_t    timestamp;
+} Measurement_Results_t;
 
 
 
@@ -226,6 +237,8 @@ void setup() {
 void loop() {
   uint16_t AmbientTemp;
   uint16_t ObjectTemp;
+  std::string tmp;
+  Measurement_Results_t muse_data;
   // If the flag "doConnect" is true then we have scanned for and found the desired
   // BLE Server with which we wish to connect.  Now we connect to it.  Once we are
   // connected we set the connected flag to be true.
@@ -254,7 +267,7 @@ void loop() {
      // Serial.println("Setting new characteristic value to \"" + newValue + "\"");
       // Set the characteristic's value to be the array of bytes that is actually a string.
      //pRemoteConfig->writeValue(newValue.c_str(), newValue.length());
-     //triggerMeasurement();
+    // triggerMeasurement();
     // pRemoteConfig->writeValue(1, 1);
      delay(1000);
         // Read the value of the characteristic.
@@ -262,13 +275,29 @@ void loop() {
       
       //uint32_t data = pRemoteCharacteristic->readUInt32();
       Serial.print("The characteristic value was: ");
-      Serial.print(value.c_str());
-      Serial.print(" ");
-      Serial.print(*(uint32_t*)value.data(),HEX);
+      if(value.size() == 20)
+      {
+        muse_data.pressure = *(uint16_t*) value.substr(0,2).data();      
+        Serial.print("Pressure: ");
+        Serial.print(muse_data.pressure);
+        Serial.print(" hPa");
+        muse_data.temperature = *(uint16_t*) value.substr(3,6).data();      
+        Serial.print(" Temperature: ");
+        Serial.print(muse_data.temperature);
+        Serial.print(" °C");
+      }
+      else
+      {
+        for(uint8_t i = 0; i < value.size(); i++)
+        {
+           Serial.print((uint8_t) value[i],HEX);
+        }
+      }
       Serial.print(" lenght:");
-      Serial.print(value.size());
-      Serial.print(" ");
-      Serial.println(value.length());
+      Serial.println(value.size());
+
+     // Serial.print(" ");
+     // Serial.println(value.length());
 //      AmbientTemp = data & 0x0000FFFF;
 //      Serial.print(" IR:");
 //      Serial.print((float) AmbientTemp/100,1);
