@@ -14,14 +14,15 @@
 //#define peripheralAddr "24:71:89:bf:2a:04"
 #define peripheralAddr "f3:da:9d:26:22:c2"
 // The remote service we wish to connect to.
-static BLEUUID serviceUUID("eb0fd000-2d0a-43cf-9521-747be0681d5a");
+//static BLEUUID serviceUUID("eb0fd000-2d0a-43cf-9521-747be0681d5a");  //muse data service
+static BLEUUID serviceUUID("0000180f-0000-1000-8000-00805f9b34fb");  //battery service
 static BLEUUID serviceconifgUUID("eb0fd000-2d0a-43cf-9521-747be0681d5a");
 //static BLEUUID serviceUUID("f000aa00-0451-4000-b000-000000000000");
 // The characteristic of the remote service we are interested in.
 static BLEUUID    charconfigUUID("eb0fd002-2d0a-43cf-9521-747be0681d5a");
 //static BLEUUID    charUUID("f000aa01-0451-4000-b000-000000000000");
-static BLEUUID    charUUID("eb0fd001-2d0a-43cf-9521-747be0681d5a");
-
+static BLEUUID    charUUID("00002a19-0000-1000-8000-00805f9b34fb");  //Battery characteristic
+//static BLEUUID    charUUID("eb0fd001-2d0a-43cf-9521-747be0681d5a"); //Muse data
 
 static BLEAddress *pServerAddress;
 static BLEAddress *pPeripheralAddr;
@@ -171,7 +172,7 @@ class MyAdvertisedDeviceCallbacks: public BLEAdvertisedDeviceCallbacks {
       Serial.print(advertisedDevice.getManufacturerData().c_str());
       if (advertisedDevice.haveServiceUUID())
       {
-        Serial.print("]\nServiceUUID: [");
+        Serial.print("]\nPrimary ServiceUUID: [");
         Serial.print(advertisedDevice.getServiceUUID().toString().c_str());
       }
       Serial.print("]\nRSSI: [");
@@ -235,6 +236,7 @@ void loop() {
     } 
     else {
       Serial.println("We have failed to connect to the server; there is nothin more we will do.");
+      Serial.println("#########################################################################");
     }
     doConnect = false;
   }
