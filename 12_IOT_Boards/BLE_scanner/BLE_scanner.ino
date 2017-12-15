@@ -267,7 +267,7 @@ void loop() {
      // Serial.println("Setting new characteristic value to \"" + newValue + "\"");
       // Set the characteristic's value to be the array of bytes that is actually a string.
      //pRemoteConfig->writeValue(newValue.c_str(), newValue.length());
-    // triggerMeasurement();
+      triggerMeasurement();
     // pRemoteConfig->writeValue(1, 1);
      delay(1000);
         // Read the value of the characteristic.
@@ -322,5 +322,5 @@ void loop() {
     }
   }
 
-  delay(5000); // Delay a second between loops.
+  delay(30000); // Delay a second between loops.
 } // End of loop
