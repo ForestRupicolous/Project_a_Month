@@ -281,11 +281,25 @@ void loop() {
         Serial.print("Pressure: ");
         Serial.print(muse_data.pressure);
         Serial.print(" hPa");
-        muse_data.temperature = *(uint16_t*) value.substr(3,6).data();      
+        muse_data.temperature = *(int16_t*) value.substr(2,4).data();      
         Serial.print(" Temperature: ");
         Serial.print(muse_data.temperature);
         Serial.print(" °C");
+        muse_data.humidity = *(uint8_t*) value.substr(4,5).data();      
+        Serial.print(" Humidity: ");
+        Serial.print(muse_data.humidity);
+        Serial.print(" % rel.");
+        muse_data.gas = *(uint16_t*) value.substr(5,7).data();      
+        Serial.print(" VOC: ");
+        Serial.print(muse_data.gas);
+        Serial.print(" ppm");
+        muse_data.brightness = *(uint16_t*) value.substr(7,9).data();      
+        Serial.print(" Light: ");
+        Serial.print(muse_data.brightness);
+        Serial.print(" lux");
       }
+
+
       else
       {
         for(uint8_t i = 0; i < value.size(); i++)
