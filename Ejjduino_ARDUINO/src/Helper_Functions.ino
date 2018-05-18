@@ -1,7 +1,21 @@
+inline void eeprom_update_word(int eepromAdress, uint16_t eepromVar)
+{
+	EEPROM.put(eepromAdress, eepromVar);
+	EEPROM.commit();
+}
+
+inline uint16_t eeprom_read_word(int eepromAdress)
+{
+	//Adress
+	uint16_t aNewTempVar;
+	EEPROM.get(eepromAdress, aNewTempVar);
+	return aNewTempVar;
+}
+
 void initHardware(){
 	// enable eeprom wait in avr/eeprom.h functions
 //	SPMCSR &= ~SELFPRGEN;
-
+	EEPROM.begin(16);
 	loadPenPosFromEE();
 
 	pinMode(enableRotMotor, OUTPUT);
@@ -15,6 +29,8 @@ void initHardware(){
 	penServo.attach(servoPin);
 	penServo.write(penState);
 }
+
+
 
 inline void loadPenPosFromEE() {
 	penUpPos = eeprom_read_word(penUpPosEEAddress);

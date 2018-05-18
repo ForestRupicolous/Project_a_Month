@@ -23,7 +23,7 @@ Slightly modified for the JJrobots BRAIN SHIELD July2016, updated March2017
 #include "AccelStepper.h" // nice lib from http://www.airspayce.com/mikem/arduino/AccelStepper/
 #include <Servo.h>
 #include "SerialCommand.h" //nice lib from Stefan Rado, https://github.com/kroimon/Arduino-SerialCommand
-#include <avr/eeprom.h>
+#include  <ESP_EEPROM.h>
 #include "button.h"
 
 #define initSting "EBBv13_and_above Protocol emulated by Eggduino-Firmware V1.6a"
@@ -48,8 +48,8 @@ Slightly modified for the JJrobots BRAIN SHIELD July2016, updated March2017
 
 //-----------------------------------------------------------------------------------------------------------
 
-#define penUpPosEEAddress ((uint16_t *)0)
-#define penDownPosEEAddress ((uint16_t *)2)
+#define penUpPosEEAddress ((uint16_t )0)
+#define penDownPosEEAddress ((uint16_t )2)
 
 //make Objects
 AccelStepper rotMotor(1, step1, dir1);
