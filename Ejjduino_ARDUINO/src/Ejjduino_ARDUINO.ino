@@ -38,7 +38,7 @@ Slightly modified for the JJrobots BRAIN SHIELD July2016, updated March2017
 #define enablePenMotor 4
 #define penMicrostep 16 //MicrostepMode, only 1,2,4,8,16 allowed, because of Integer-Math in this Sketch
 
-#define servoPin 10 //Servo
+#define servoPin 13 //Servo on PWM PIN
 
 // EXTRAFEATURES - UNCOMMENT TO USE THEM -------------------------------------------------------------------
 
