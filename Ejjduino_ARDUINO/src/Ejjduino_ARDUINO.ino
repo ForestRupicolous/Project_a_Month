@@ -29,7 +29,7 @@ Slightly modified for the JJrobots BRAIN SHIELD July2016, updated March2017
 #define SERVODEBUG
 #ifdef SERVODEBUG
 	int pos = 0;    // variable to store the servo position
-#define sweeptime 15
+#define sweeptime 150
 #define waittime 2000
 #endif
 
@@ -76,8 +76,8 @@ SerialCommand SCmd;
 // Variables... be careful, by messing around here, everything has a reason and crossrelations...
 int penMin=0;
 int penMax=0;
-int penUpPos=45;  //can be overwritten from EBB-Command SC
-int penDownPos=0; //can be overwritten from EBB-Command SC
+int penUpPos=5;  //can be overwritten from EBB-Command SC
+int penDownPos=20; //can be overwritten from EBB-Command SC
 int servoRateUp=0; //from EBB-Protocol not implemented on machine-side
 int servoRateDown=0; //from EBB-Protocol not implemented on machine-side
 long rotStepError=0;
@@ -101,13 +101,14 @@ void setup() {
 
 void loop() {
 #ifdef SERVODEBUG
-  for (pos = penDownPos; pos <= penUpPos; pos += 1) { // goes from 0 degrees to 180 degrees
+
+  for (pos = 0; pos <= 30; pos += 1) { // goes from 0 degrees to 180 degrees
     // in steps of 1 degree
     penServo.write(pos);              // tell servo to go to position in variable 'pos'
     delay(sweeptime);                       // waits 15ms for the servo to reach the position
   }
   delay(waittime);
-  for (pos = penUpPos; pos >= penDownPos; pos -= 1) { // goes from 180 degrees to 0 degrees
+  for (pos = 30; pos >= 0; pos -= 1) { // goes from 180 degrees to 0 degrees
     penServo.write(pos);              // tell servo to go to position in variable 'pos'
     delay(sweeptime);                       // waits 15ms for the servo to reach the position
   }
