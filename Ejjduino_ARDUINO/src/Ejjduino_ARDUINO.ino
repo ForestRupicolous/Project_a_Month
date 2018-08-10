@@ -29,8 +29,9 @@ Slightly modified for the JJrobots BRAIN SHIELD July2016, updated March2017
 #define SERVODEBUG
 #ifdef SERVODEBUG
 	int pos = 0;    // variable to store the servo position
-#define sweeptime 150
-#define waittime 2000
+#define sweeptime 5
+#define waittime 5000
+#define debuguppose 45
 #endif
 
 #define initSting "EBBv13_and_above Protocol emulated by Eggduino-Firmware V1.6a"
@@ -102,13 +103,13 @@ void setup() {
 void loop() {
 #ifdef SERVODEBUG
 
-  for (pos = 0; pos <= 30; pos += 1) { // goes from 0 degrees to 180 degrees
+  for (pos = 0; pos <= debuguppose; pos += 1) { // goes from 0 degrees to 180 degrees
     // in steps of 1 degree
     penServo.write(pos);              // tell servo to go to position in variable 'pos'
     delay(sweeptime);                       // waits 15ms for the servo to reach the position
   }
   delay(waittime);
-  for (pos = 30; pos >= 0; pos -= 1) { // goes from 180 degrees to 0 degrees
+  for (pos = debuguppose; pos >= 0; pos -= 1) { // goes from 180 degrees to 0 degrees
     penServo.write(pos);              // tell servo to go to position in variable 'pos'
     delay(sweeptime);                       // waits 15ms for the servo to reach the position
   }
