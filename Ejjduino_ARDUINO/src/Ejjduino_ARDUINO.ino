@@ -26,6 +26,13 @@ Slightly modified for the JJrobots BRAIN SHIELD July2016, updated March2017
 #include "EEPROM.h"
 #include "button.h"
 
+#define SERVODEBUG
+#ifdef SERVODEBUG
+	int pos = 0;    // variable to store the servo position
+#define sweeptime 15
+#define waittime 2000
+#endif
+
 #define initSting "EBBv13_and_above Protocol emulated by Eggduino-Firmware V1.6a"
 //Rotational Stepper:
 #define step1 7
@@ -69,8 +76,8 @@ SerialCommand SCmd;
 // Variables... be careful, by messing around here, everything has a reason and crossrelations...
 int penMin=0;
 int penMax=0;
-int penUpPos=5;  //can be overwritten from EBB-Command SC
-int penDownPos=20; //can be overwritten from EBB-Command SC
+int penUpPos=45;  //can be overwritten from EBB-Command SC
+int penDownPos=0; //can be overwritten from EBB-Command SC
 int servoRateUp=0; //from EBB-Protocol not implemented on machine-side
 int servoRateDown=0; //from EBB-Protocol not implemented on machine-side
 long rotStepError=0;
@@ -93,6 +100,19 @@ void setup() {
 }
 
 void loop() {
+#ifdef SERVODEBUG
+  for (pos = penDownPos; pos <= penUpPos; pos += 1) { // goes from 0 degrees to 180 degrees
+    // in steps of 1 degree
+    penServo.write(pos);              // tell servo to go to position in variable 'pos'
+    delay(sweeptime);                       // waits 15ms for the servo to reach the position
+  }
+  delay(waittime);
+  for (pos = penUpPos; pos >= penDownPos; pos -= 1) { // goes from 180 degrees to 0 degrees
+    penServo.write(pos);              // tell servo to go to position in variable 'pos'
+    delay(sweeptime);                       // waits 15ms for the servo to reach the position
+  }
+  delay(waittime);
+#else
 	moveOneStep();
 
 	SCmd.readSerial();
@@ -107,5 +127,7 @@ void loop() {
 
 #ifdef prgButton
 	prgButtonToggle.check();
+#endif
+
 #endif
 }
