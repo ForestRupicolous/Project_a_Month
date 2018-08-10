@@ -16,7 +16,8 @@ void initHardware(){
 	// enable eeprom wait in avr/eeprom.h functions
 //	SPMCSR &= ~SELFPRGEN;
 	EEPROM.begin(16);
-	loadPenPosFromEE();
+	//commented as otherwise servo crashes when values where never written before
+	//loadPenPosFromEE(); 
 
 	pinMode(enableRotMotor, OUTPUT);
 	pinMode(enablePenMotor, OUTPUT);
