@@ -26,7 +26,7 @@ Slightly modified for the JJrobots BRAIN SHIELD July2016, updated March2017
 #include "EEPROM.h"
 #include "button.h"
 
-#define SERVODEBUG
+//#define SERVODEBUG
 #ifdef SERVODEBUG
 	int pos = 0;    // variable to store the servo position
 #define sweeptime 5

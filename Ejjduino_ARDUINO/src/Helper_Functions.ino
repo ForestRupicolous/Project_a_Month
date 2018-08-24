@@ -17,7 +17,8 @@ void initHardware(){
 //	SPMCSR &= ~SELFPRGEN;
 	EEPROM.begin(16);
 	//commented as otherwise servo crashes when values where never written before
-	//loadPenPosFromEE(); 
+	//change servo min max value with SC,4,2000  SC,5,1000
+	loadPenPosFromEE(); 
 
 	pinMode(enableRotMotor, OUTPUT);
 	pinMode(enablePenMotor, OUTPUT);
