@@ -1,0 +1,55 @@
+{
+    "name": "IRLib2", 
+    "repository": {
+        "url": "https://github.com/cyborg5/IRLib2.git", 
+        "type": "git"
+    }, 
+    "platforms": [
+        "atmelavr", 
+        "atmelsam", 
+        "espressif8266", 
+        "intel_arc32", 
+        "microchippic32", 
+        "nordicnrf51", 
+        "teensy", 
+        "timsp430"
+    ], 
+    "examples": "IRLib2/examples/*/*.ino", 
+    "frameworks": [
+        "arduino"
+    ], 
+    "version": "2.0.0", 
+    "build": {
+        "srcFilter": [
+            "+<*>", 
+            "-<IRLib2/examples>"
+        ], 
+        "flags": [
+            "-I IRLib2", 
+            "-I IRLibFreq", 
+            "-I IRLibProtocols", 
+            "-I IRLibRecv", 
+            "-I IRLibRecvPCI"
+        ]
+    }, 
+    "authors": [
+        {
+            "maintainer": true, 
+            "name": "Chris Young", 
+            "url": "http://tech.cyborg5.com/irlib", 
+            "email": "cy_borg5@cyborg5.com"
+        }, 
+        {
+            "url": "http://www.righto.com/2009/08/multi-protocol-infrared-remote-library.html", 
+            "maintainer": false, 
+            "email": null, 
+            "name": "Ken Shirriff"
+        }
+    ], 
+    "keywords": [
+        "ir", 
+        "remote"
+    ], 
+    "id": 1735, 
+    "description": "A library for receiving, decoding and sending infrared signals using Arduino"
+}
