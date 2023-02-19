@@ -1,0 +1,40 @@
+{
+    "description": "An improved EEPROM library for ESP8266", 
+    "repository": {
+        "url": "https://github.com/jwrw/ESP_EEPROM", 
+        "type": "git"
+    }, 
+    "platforms": [
+        "espressif8266"
+    ], 
+    "export": {
+        "exclude": [
+            "extras", 
+            "docs", 
+            "tests", 
+            "test", 
+            "*.doxyfile", 
+            "*.pdf"
+        ], 
+        "include": null
+    }, 
+    "authors": [
+        {
+            "maintainer": true, 
+            "name": "j-watson", 
+            "url": null, 
+            "email": "j-watson@ntlworld.com"
+        }
+    ], 
+    "keywords": [
+        "storage", 
+        "data"
+    ], 
+    "id": 2795, 
+    "name": "ESP_EEPROM", 
+    "frameworks": [
+        "arduino"
+    ], 
+    "version": "2.0.0", 
+    "homepage": "https://github.com/jwrw/ESP_EEPROM.git"
+}
