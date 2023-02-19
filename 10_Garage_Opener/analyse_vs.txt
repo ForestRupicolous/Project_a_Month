@@ -1,0 +1,241 @@
+Send a signal repeatedly. We will report averages and statistics.
+
+Samples=1
+Decoded Unknown(0): Value:0 Adrs:0 (0 bits) 
+Raw samples(100): Gap:45114
+  Head: m4390  s358
+0:m1426 s362	1:m1066 s310		 2:m1698 s5454	3:m718 s298		 
+4:m1110 s234	5:m1974 s362		 6:m2442 s314	7:m154 s358		 
+8:m1646 s5474	9:m722 s250		 10:m1042 s362	11:m4738 s286		 
+12:m186 s298	13:m558 s366		 14:m750 s5502	15:m658 s342		 
+
+16:m1066 s310	17:m3870 s222		 18:m238 s222	19:m142 s358		 
+20:m1018 s362	21:m746 s5510		 22:m7222 s278	23:m946 s362		 
+24:m730 s5526	25:m634 s414		 26:m5178 s226	27:m1094 s422		 
+28:m1602 s5490	29:m686 s314		 30:m1018 s270	31:m7226 s5550		 
+
+32:m462 s242	33:m8798 s5558		 34:m9530 s5534	35:m8706 s434		 
+36:m398 s5518	37:m9578 s5486		 38:m6790 s222	39:m2482 s5570		 
+40:m1222 s318	41:m934 s266		 42:m3210 s294	43:m3274 s5546		 
+44:m9430 s5726	45:m154 s202		 46:m3862 s362	47:m2450 s358		 
+
+48:m2062
+Extent=220438
+Mark  min:142	 max:9578
+Space min:202	 max:5726
+
+	 #	Low	High	Avg.
+Mark	49	142	9578	2605
+Space	48	202	5726	1834
+
+Marks		 #	Low	High	Avg.
+Above Avg	14	3210	9578	6529
+Belows Avg.	35	142	2482	1035
+
+Spaces		 #	Low	High	Avg.
+Above Avg.	14	5454	5726	5531
+Below Avg.	34	202	434	311
+
+Ratios		vs   Marks	vs   Spaces
+		Below	Above	Below	Above
+Head Mark	4.24	0.67	14.12	0.79
+Head Space	0.35	0.05	1.15	0.06
+
+			Low	High	Avg.
+Space vs Avg Mark	0.12	2.12	0.70
+Mark vs Avg Space	0.56	3.56	1.42
+
+Mark Above/Below=	6.31
+Space Above/Below=	17.78
+
+Samples=2
+Decoded Unknown(0): Value:0 Adrs:0 (0 bits) 
+Raw samples(100): Gap:27984
+  Head: m4232  s292
+0:m3374 s2912	1:m852 s302		 2:m1926 s2870	3:m3470 s2882		 
+4:m1602 s254	5:m2008 s352		 6:m1920 s336	7:m400 s304		 
+8:m910 s2880	9:m662 s296		 10:m906 s2964	11:m2648 s260		 
+12:m3232 s276	13:m1340 s2950		 14:m4014 s2890	15:m1368 s2886		 
+
+16:m1574 s298	17:m5524 s2868		 18:m4892 s2870	19:m1078 s360		 
+20:m2394 s372	21:m1374 s2880		 22:m4018 s2884	23:m3536 s352		 
+24:m1904 s5510	25:m5110 s2944		 26:m4746 s294	27:m1332 s324		 
+28:m2360 s5482	29:m2524 s272		 30:m2996 s2884	31:m7862 s2892		 
+
+32:m668 s2848	33:m4718 s2986		 34:m5756 s2870	35:m6268 s396		 
+36:m1272 s5504	37:m7004 s2890		 38:m3880 s238	39:m1376 s2928		 
+40:m2146 s2902	41:m834 s292		 42:m2118 s296	43:m3568 s2900		 
+44:m5050 s2980	45:m168 s256		 46:m2764 s2936	47:m1586 s306		 
+
+48:m2728
+Extent=232912
+Mark  min:168	 max:7862
+Space min:238	 max:5510
+
+	 #	Low	High	Avg.
+Mark	49	168	7862	2770
+Space	48	238	5510	1929
+
+Marks		 #	Low	High	Avg.
+Above Avg	19	2996	7862	4685
+Belows Avg.	30	168	2764	1558
+
+Spaces		 #	Low	High	Avg.
+Above Avg.	27	2848	5510	3192
+Below Avg.	21	238	396	306
+
+Ratios		vs   Marks	vs   Spaces
+		Below	Above	Below	Above
+Head Mark	2.72	0.90	13.83	1.33
+Head Space	0.19	0.06	0.95	0.09
+
+			Low	High	Avg.
+Space vs Avg Mark	0.11	1.15	0.70
+Mark vs Avg Space	0.81	2.43	1.44
+
+Mark Above/Below=	3.01
+Space Above/Below=	10.43
+
+Samples=3
+Decoded Unknown(0): Value:0 Adrs:0 (0 bits) 
+Raw samples(100): Gap:11907
+  Head: m3451  s282
+0:m4674 s3778	1:m787 s351		 2:m1603 s2018	3:m2984 s2043		 
+4:m1538 s266	5:m1711 s338		 6:m1466 s292	7:m587 s2019		 
+8:m1295 s2042	9:m1994 s310		 10:m678 s2072	11:m1940 s286		 
+12:m2407 s2016	13:m1122 s2071		 14:m3030 s2031	15:m2186 s2028		 
+
+16:m1262 s287	17:m3720 s2032		 18:m3806 s3759	19:m975 s343		 
+20:m1908 s384	21:m1568 s2042		 22:m3622 s2043	23:m2554 s316		 
+24:m1516 s5520	25:m4078 s2083		 26:m3839 s274	27:m958 s307		 
+28:m2254 s3730	29:m2416 s2004		 30:m2239 s2004	31:m5618 s2010		 
+
+32:m2194 s1995	33:m3699 s3830		 34:m6672 s2012	35:m4424 s2103		 
+36:m2898 s3790	37:m4874 s2046		 38:m2615 s266	39:m1474 s3786		 
+40:m1672 s2016	41:m2588 s332		 42:m2100 s2035	43:m3080 s2010		 
+44:m4023 s2108	45:m623 s270		 46:m2183 s2078	47:m1250 s316		 
+
+48:m2066
+Extent=208595
+Mark  min:587	 max:6672
+Space min:266	 max:5520
+
+	 #	Low	High	Avg.
+Mark	49	587	6672	2464
+Space	48	266	5520	1751
+
+Marks		 #	Low	High	Avg.
+Above Avg	19	2554	6672	3831
+Belows Avg.	30	587	2416	1599
+
+Spaces		 #	Low	High	Avg.
+Above Avg.	32	1995	5520	2473
+Below Avg.	16	266	384	308
+
+Ratios		vs   Marks	vs   Spaces
+		Below	Above	Below	Above
+Head Mark	2.16	0.90	11.20	1.40
+Head Space	0.18	0.07	0.92	0.11
+
+			Low	High	Avg.
+Space vs Avg Mark	0.12	1.00	0.71
+Mark vs Avg Space	0.91	2.19	1.41
+
+Mark Above/Below=	2.40
+Space Above/Below=	8.03
+
+Samples=4
+Decoded Unknown(0): Value:0 Adrs:0 (0 bits) 
+Raw samples(100): Gap:3084
+  Head: m2627  s293
+0:m3561 s2913	1:m634 s333		 2:m1354 s1592	3:m2382 s1593		 
+4:m1186 s290	5:m1297 s354		 6:m1155 s298	7:m575 s1591		 
+8:m1004 s1633	9:m1565 s373		 10:m564 s1634	11:m1720 s294		 
+12:m1941 s2941	13:m875 s1635		 14:m2327 s1603	15:m1782 s1582		 
+
+16:m1137 s273	17:m3194 s1576		 18:m2894 s2881	19:m744 s367		 
+20:m1472 s362	21:m1683 s1594		 22:m2792 s1585	23:m1947 s314		 
+24:m1184 s5562	25:m3091 s1645		 26:m2943 s274	27:m849 s332		 
+28:m1747 s2945	29:m1866 s1565		 30:m1733 s1564	31:m4478 s1594		 
+
+32:m1800 s1572	33:m2830 s2951		 34:m5155 s1589	35:m3446 s1661		 
+36:m2236 s2912	37:m3806 s2950		 38:m1995 s280	39:m1161 s2919		 
+40:m1280 s1579	41:m1990 s313		 42:m1613 s1630	43:m2323 s1590		 
+44:m3058 s1655	45:m500 s400		 46:m1692 s1639	47:m962 s305		 
+
+48:m1598
+Extent=169078
+Mark  min:500	 max:5155
+Space min:273	 max:5562
+
+	 #	Low	High	Avg.
+Mark	49	500	5155	1941
+Space	48	273	5562	1479
+
+Marks		 #	Low	High	Avg.
+Above Avg	19	1947	5155	2970
+Belows Avg.	30	500	1941	1289
+
+Spaces		 #	Low	High	Avg.
+Above Avg.	32	1564	5562	2058
+Below Avg.	16	273	400	322
+
+Ratios		vs   Marks	vs   Spaces
+		Below	Above	Below	Above
+Head Mark	2.04	0.88	8.16	1.28
+Head Space	0.23	0.10	0.91	0.14
+
+			Low	High	Avg.
+Space vs Avg Mark	0.17	1.06	0.76
+Mark vs Avg Space	0.87	2.01	1.31
+
+Mark Above/Below=	2.30
+Space Above/Below=	6.39
+
+Samples=5
+Decoded Unknown(0): Value:0 Adrs:0 (0 bits) 
+Raw samples(100): Gap:4216
+  Head: m2139  s292
+0:m2894 s2469	1:m527 s338		 2:m1137 s1494	3:m1916 s1355		 
+4:m968 s305	5:m1080 s346		 6:m936 s302	7:m566 s1350		 
+8:m841 s1451	9:m1337 s488		 10:m558 s1384	11:m1414 s1371		 
+12:m1585 s2411	13:m750 s1363		 14:m1869 s1353	15:m1446 s1367		 
+
+16:m918 s363	17:m2581 s1326		 18:m2341 s2370	19:m613 s367		 
+20:m1226 s346	21:m1450 s1356		 22:m2256 s1315	23:m1607 s390		 
+24:m991 s4528	25:m2479 s1462		 26:m2398 s354	27:m705 s1418		 
+28:m1423 s2422	29:m1605 s1323		 30:m1413 s1315	31:m3633 s1330		 
+
+32:m1549 s1317	33:m2296 s2513		 34:m4252 s1321	35:m2782 s1399		 
+36:m1808 s2402	37:m3093 s2417		 38:m1610 s270	39:m943 s2455		 
+40:m1110 s1335	41:m1634 s314		 42:m1309 s1359	43:m1902 s2404		 
+44:m2472 s1389	45:m487 s416		 46:m1373 s1384	47:m822 s290		 
+
+48:m1399
+Extent=144852
+Mark  min:487	 max:4252
+Space min:270	 max:4528
+
+	 #	Low	High	Avg.
+Mark	49	487	4252	1598
+Space	48	270	4528	1335
+
+Marks		 #	Low	High	Avg.
+Above Avg	20	1605	4252	2371
+Belows Avg.	29	487	1585	1064
+
+Spaces		 #	Low	High	Avg.
+Above Avg.	26	1350	4528	1871
+Below Avg.	22	270	1335	703
+
+Ratios		vs   Marks	vs   Spaces
+		Below	Above	Below	Above
+Head Mark	2.01	0.90	3.04	1.14
+Head Space	0.27	0.12	0.42	0.16
+
+			Low	High	Avg.
+Space vs Avg Mark	0.44	1.17	0.84
+Mark vs Avg Space	0.80	1.78	1.20
+
+Mark Above/Below=	2.23
+Space Above/Below=	2.66

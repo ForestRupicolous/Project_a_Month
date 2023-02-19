@@ -1,0 +1,218 @@
+Ready to receive IR signals
+Do a cut-and-paste of the following lines into the 
+designated location in rawSend.ino
+
+#define RAW_DATA_LEN 2
+uint16_t rawData[RAW_DATA_LEN]={
+	170, 1000};
+Do a cut-and-paste of the following lines into the 
+designated location in rawSend.ino
+
+#define RAW_DATA_LEN 2
+uint16_t rawData[RAW_DATA_LEN]={
+	166, 1000};
+Do a cut-and-paste of the following lines into the 
+designated location in rawSend.ino
+
+#define RAW_DATA_LEN 4
+uint16_t rawData[RAW_DATA_LEN]={
+	174, 7034, 202, 1000};
+Do a cut-and-paste of the following lines into the 
+designated location in rawSend.ino
+
+#define RAW_DATA_LEN 6
+uint16_t rawData[RAW_DATA_LEN]={
+	150, 1202, 170, 5262, 182, 1000};
+Do a cut-and-paste of the following lines into the 
+designated location in rawSend.ino
+
+#define RAW_DATA_LEN 4
+uint16_t rawData[RAW_DATA_LEN]={
+	178, 1230, 146, 1000};
+Do a cut-and-paste of the following lines into the 
+designated location in rawSend.ino
+
+#define RAW_DATA_LEN 2
+uint16_t rawData[RAW_DATA_LEN]={
+	170, 1000};
+Do a cut-and-paste of the following lines into the 
+designated location in rawSend.ino
+
+#define RAW_DATA_LEN 2
+uint16_t rawData[RAW_DATA_LEN]={
+	146, 1000};
+Do a cut-and-paste of the following lines into the 
+designated location in rawSend.ino
+
+#define RAW_DATA_LEN 4
+uint16_t rawData[RAW_DATA_LEN]={
+	182, 782, 138, 1000};
+Do a cut-and-paste of the following lines into the 
+designated location in rawSend.ino
+
+#define RAW_DATA_LEN 2
+uint16_t rawData[RAW_DATA_LEN]={
+	150, 1000};
+Do a cut-and-paste of the following lines into the 
+designated location in rawSend.ino
+
+#define RAW_DATA_LEN 2
+uint16_t rawData[RAW_DATA_LEN]={
+	146, 1000};
+Do a cut-and-paste of the following lines into the 
+designated location in rawSend.ino
+
+#define RAW_DATA_LEN 2
+uint16_t rawData[RAW_DATA_LEN]={
+	142, 1000};
+Do a cut-and-paste of the following lines into the 
+designated location in rawSend.ino
+
+#define RAW_DATA_LEN 2
+uint16_t rawData[RAW_DATA_LEN]={
+	146, 1000};
+Do a cut-and-paste of the following lines into the 
+designated location in rawSend.ino
+
+#define RAW_DATA_LEN 2
+uint16_t rawData[RAW_DATA_LEN]={
+	150, 1000};
+Do a cut-and-paste of the following lines into the 
+designated location in rawSend.ino
+
+#define RAW_DATA_LEN 2
+uint16_t rawData[RAW_DATA_LEN]={
+	174, 1000};
+Do a cut-and-paste of the following lines into the 
+designated location in rawSend.ino
+
+#define RAW_DATA_LEN 4
+uint16_t rawData[RAW_DATA_LEN]={
+	146, 1694, 142, 1000};
+Do a cut-and-paste of the following lines into the 
+designated location in rawSend.ino
+
+#define RAW_DATA_LEN 6
+uint16_t rawData[RAW_DATA_LEN]={
+	170, 7566, 250, 7074, 174, 1000};
+Do a cut-and-paste of the following lines into the 
+designated location in rawSend.ino
+
+#define RAW_DATA_LEN 4
+uint16_t rawData[RAW_DATA_LEN]={
+	146, 6706, 198, 1000};
+Do a cut-and-paste of the following lines into the 
+designated location in rawSend.ino
+
+#define RAW_DATA_LEN 8
+uint16_t rawData[RAW_DATA_LEN]={
+	286, 3882, 250, 682, 234, 214, 170, 1000};
+Do a cut-and-paste of the following lines into the 
+designated location in rawSend.ino
+
+#define RAW_DATA_LEN 2
+uint16_t rawData[RAW_DATA_LEN]={
+	226, 1000};
+Do a cut-and-paste of the following lines into the 
+designated location in rawSend.ino
+
+#define RAW_DATA_LEN 2
+uint16_t rawData[RAW_DATA_LEN]={
+	170, 1000};
+Do a cut-and-paste of the following lines into the 
+designated location in rawSend.ino
+
+#define RAW_DATA_LEN 4
+uint16_t rawData[RAW_DATA_LEN]={
+	150, 6234, 154, 1000};
+Do a cut-and-paste of the following lines into the 
+designated location in rawSend.ino
+
+#define RAW_DATA_LEN 10
+uint16_t rawData[RAW_DATA_LEN]={
+	258, 2010, 278, 1622, 166, 694, 274, 258, 
+	198, 1000};
+Do a cut-and-paste of the following lines into the 
+designated location in rawSend.ino
+
+#define RAW_DATA_LEN 2
+uint16_t rawData[RAW_DATA_LEN]={
+	170, 1000};
+Do a cut-and-paste of the following lines into the 
+designated location in rawSend.ino
+
+#define RAW_DATA_LEN 2
+uint16_t rawData[RAW_DATA_LEN]={
+	238, 1000};
+Do a cut-and-paste of the following lines into the 
+designated location in rawSend.ino
+
+#define RAW_DATA_LEN 2
+uint16_t rawData[RAW_DATA_LEN]={
+	146, 1000};
+Do a cut-and-paste of the following lines into the 
+designated location in rawSend.ino
+
+#define RAW_DATA_LEN 2
+uint16_t rawData[RAW_DATA_LEN]={
+	142, 1000};
+Do a cut-and-paste of the following lines into the 
+designated location in rawSend.ino
+
+#define RAW_DATA_LEN 4
+uint16_t rawData[RAW_DATA_LEN]={
+	266, 1618, 166, 1000};
+Do a cut-and-paste of the following lines into the 
+designated location in rawSend.ino
+
+#define RAW_DATA_LEN 2
+uint16_t rawData[RAW_DATA_LEN]={
+	166, 1000};
+Do a cut-and-paste of the following lines into the 
+designated location in rawSend.ino
+
+#define RAW_DATA_LEN 4
+uint16_t rawData[RAW_DATA_LEN]={
+	230, 698, 170, 1000};
+Do a cut-and-paste of the following lines into the 
+designated location in rawSend.ino
+
+#define RAW_DATA_LEN 4
+uint16_t rawData[RAW_DATA_LEN]={
+	234, 1178, 174, 1000};
+Do a cut-and-paste of the following lines into the 
+designated location in rawSend.ino
+
+#define RAW_DATA_LEN 2
+uint16_t rawData[RAW_DATA_LEN]={
+	170, 1000};
+Do a cut-and-paste of the following lines into the 
+designated location in rawSend.ino
+
+#define RAW_DATA_LEN 4
+uint16_t rawData[RAW_DATA_LEN]={
+	174, 5350, 142, 1000};
+Do a cut-and-paste of the following lines into the 
+designated location in rawSend.ino
+
+#define RAW_DATA_LEN 2
+uint16_t rawData[RAW_DATA_LEN]={
+	234, 1000};
+Do a cut-and-paste of the following lines into the 
+designated location in rawSend.ino
+
+#define RAW_DATA_LEN 2
+uint16_t rawData[RAW_DATA_LEN]={
+	150, 1000};
+Do a cut-and-paste of the following lines into the 
+designated location in rawSend.ino
+
+#define RAW_DATA_LEN 2
+uint16_t rawData[RAW_DATA_LEN]={
+	226, 1000};
+Do a cut-and-paste of the following lines into the 
+designated location in rawSend.ino
+
+#define RAW_DATA_LEN 4
+uint16_t rawData[RAW_DATA_LEN]={
+	250, 1378, 166, 1000};
