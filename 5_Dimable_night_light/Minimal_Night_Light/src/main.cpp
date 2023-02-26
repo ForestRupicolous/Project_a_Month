@@ -10,6 +10,12 @@
 // How many NeoPixels are attached to the Arduino?
 #define NUMPIXELS      16
 
+void startShow(int i);
+void colorWipe(uint32_t c, uint8_t wait);
+void rainbow(uint8_t wait);
+void rainbowCycle(uint8_t wait);
+uint32_t Wheel(byte WheelPos);
+
 // When we setup the NeoPixel library, we tell it how many pixels, and which pin to use to send signals.
 // Note that for older NeoPixel strips you might need to change the third parameter--see the strandtest
 // example for more information on possible values.
@@ -20,59 +26,6 @@ byte in = 0;
 int showType = 1;
 
 
-void setup() {
-  //DigiUSB.begin();
-  strip.begin(); // This initializes the NeoPixel library.
-  pinMode(1,OUTPUT);
-}
-
-
-void startShow (int i);
-
-void loop() {
-    delay(10000);
-    showType++;
-    if (showType > 9)
-        showType=7;
-    startShow(showType);
-    
-    /*if (DigiUSB.available() > 0) {
-       in = 0;
-       
-       in = DigiUSB.read();
-       if (in < 10){
-           DigiUSB.println("Received");
-           DigiUSB.println(in,DEC);
-           showType = in;
-         }
-    }*/
-}
-
-
-void startShow(int i) {
-  switch(i){
-    case 0: colorWipe(strip.Color(0, 0, 0), 50);    // Black/off
-            break;
-    case 1: colorWipe(strip.Color(255, 0, 0), 50);  // Red
-            break;
-    case 2: colorWipe(strip.Color(0, 255, 0), 50);  // Green
-            break;
-    case 3: colorWipe(strip.Color(0, 0, 255), 50);  // Blue
-            break;
-    case 4: theaterChase(strip.Color(127, 127, 127), 50); // White
-            break;
-    case 5: theaterChase(strip.Color(127,   0,   0), 50); // Red
-            break;
-    case 6: theaterChase(strip.Color(  0,   0, 127), 50); // Blue
-            break;
-    case 7: rainbow(20);
-            break;
-    case 8: rainbowCycle(20);
-            break;
-    case 9: theaterChaseRainbow(50);
-            break;
-  }
-}
 
 // Fill the dots one after the other with a color
 void colorWipe(uint32_t c, uint8_t wait) {
@@ -157,4 +110,57 @@ uint32_t Wheel(byte WheelPos) {
    WheelPos -= 170;
    return strip.Color(WheelPos * 3, 255 - WheelPos * 3, 0);
   }
+}
+
+void startShow(int i) {
+  switch(i){
+    case 0: colorWipe(strip.Color(0, 0, 0), 50);    // Black/off
+            break;
+    case 1: colorWipe(strip.Color(255, 0, 0), 50);  // Red
+            break;
+    case 2: colorWipe(strip.Color(0, 255, 0), 50);  // Green
+            break;
+    case 3: colorWipe(strip.Color(0, 0, 255), 50);  // Blue
+            break;
+    case 4: theaterChase(strip.Color(127, 127, 127), 50); // White
+            break;
+    case 5: theaterChase(strip.Color(127,   0,   0), 50); // Red
+            break;
+    case 6: theaterChase(strip.Color(  0,   0, 127), 50); // Blue
+            break;
+    case 7: rainbow(20);
+            break;
+    case 8: rainbowCycle(20);
+            break;
+    case 9: theaterChaseRainbow(50);
+            break;
+  }
+}
+
+void setup() {
+  //DigiUSB.begin();
+  strip.begin(); // This initializes the NeoPixel library.
+  pinMode(1,OUTPUT);
+}
+
+
+void startShow (int i);
+
+void loop() {
+    delay(10000);
+    showType++;
+    if (showType > 9)
+        showType=7;
+    startShow(showType);
+    
+    /*if (DigiUSB.available() > 0) {
+       in = 0;
+       
+       in = DigiUSB.read();
+       if (in < 10){
+           DigiUSB.println("Received");
+           DigiUSB.println(in,DEC);
+           showType = in;
+         }
+    }*/
 }
