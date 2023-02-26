@@ -5,9 +5,9 @@ Anforderungen:
 
 Ideen:
 * Trinket mit ein paar digitalen LEDs
-* DUnkelste Stufe eine LED ganz gedimmt
+* Dunkelste Stufe eine LED ganz gedimmt
 * Hellste Stufe alle Leds an
 * Direkt an USB Netzteil oder USB Batterie
-
+* 
 Ausbaustuffen:
 * ES8266 um die Helligkeit und die Dimmzeit per Webseite umzustellen
